@@ -48,4 +48,4 @@ module "iscsi_pvc" {
 
 ## License
 
-[MIT](./LICENSE]
+[MIT](./LICENSE)

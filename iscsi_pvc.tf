@@ -1,6 +1,14 @@
+locals {
+  labels = {
+    "app.kubernetes.io/managed-by" = "terraform"
+    "app.kubernetes.io/name"       = var.pvc_name
+  }
+}
+
 resource "kubernetes_persistent_volume" "iscsi" {
   metadata {
-    name = var.pvc_name
+    name   = var.pvc_name
+    labels = merge(local.labels, var.labels)
   }
   spec {
     capacity = {
@@ -22,6 +30,7 @@ resource "kubernetes_persistent_volume_claim" "iscsi" {
   metadata {
     name      = var.pvc_name
     namespace = var.pvc_namespace
+    labels    = merge(local.labels, var.labels)
   }
   spec {
     access_modes = [var.access_mode]

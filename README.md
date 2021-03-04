@@ -31,13 +31,14 @@ module "iscsi_pvc" {
 
 | Name                  | Description           | Type   | Default           | Required |
 |-----------------------|-----------------------|--------|-------------------|----------|
+| `labels`              | Kubernetes Labels     | object | `{}`              | no       |
 | `pvc_name`            | PVC name              | string |                   | yes      |
 | `pvc_namespace`       | PVC namespace         | string |                   | yes      |
 | `storage_capacity`    | PVC capacity          | string | `"10Gi"`          | no       |
 | `access_mode`         | PVC access mode       | string | `"ReadWriteOnce"` | no       |
 | `iscsi_target_portal` | Iscsi target portal   | string |                   | yes      |
 | `iscsi_iqn`           | Iscsi IQN             | string |                   | yes      |
-| `iscsi_fs_type        | Iscsi filesystem type | string | `"ext4"`          | no       |
+| `iscsi_fs_type`       | Iscsi filesystem type | string | `"ext4"`          | no       |
 | `iscsi_lun`           | Iscsi nun number      | string | `0`               | no       |
 
 ## Outputs

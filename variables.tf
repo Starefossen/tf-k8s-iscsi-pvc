@@ -1,3 +1,6 @@
+variable "labels" {
+  default = {}
+}
 variable "pvc_name" {}
 variable "pvc_namespace" {}
 variable "storage_capacity" {
